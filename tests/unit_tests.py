@@ -23,11 +23,11 @@ TEXT_FN = os.path.join(TEST_DIR, 'data', 'text')
 HTML_FN = os.path.join(TEST_DIR, 'data', 'html')
 URLS_FILE = os.path.join(TEST_DIR, 'data', 'fulltext_url_list.txt')
 
-import newspaper
-from newspaper import Article, fulltext, Source, ArticleException, news_pool
-from newspaper.article import ArticleDownloadState
-from newspaper.configuration import Configuration
-from newspaper.urls import get_domain
+import newspaper_wrapper as newspaper
+from newspaper_wrapper import Article, fulltext, Source, ArticleException, news_pool
+from newspaper_wrapper.article import ArticleDownloadState
+from newspaper_wrapper.configuration import Configuration
+from newspaper_wrapper.urls import get_domain
 
 
 def print_test(method):
@@ -528,7 +528,7 @@ class UrlTestCase(unittest.TestCase):
         """Prints out a list of urls with our heuristic guess if it is a
         valid news url purely based on the url
         """
-        from newspaper.urls import valid_url
+        from newspaper_wrapper.urls import valid_url
 
         with open(os.path.join(TEST_DIR, 'data/test_urls.txt'), 'r') as f:
             lines = f.readlines()
@@ -548,7 +548,7 @@ class UrlTestCase(unittest.TestCase):
     @print_test
     def test_pubdate(self):
         """Checks that irrelevant data in url isn't considered as publishing date"""
-        from newspaper.urls import STRICT_DATE_REGEX
+        from newspaper_wrapper.urls import STRICT_DATE_REGEX
 
         with open(os.path.join(TEST_DIR, 'data/test_urls_pubdate.txt'), 'r') as f:
             lines = f.readlines()
@@ -575,7 +575,7 @@ class UrlTestCase(unittest.TestCase):
         """Normalizes a url, removes arguments, hashtags. If a relative url, it
         merges it with the source domain to make an abs url, etc
         """
-        from newspaper.urls import prepare_url
+        from newspaper_wrapper.urls import prepare_url
 
         with open(os.path.join(TEST_DIR, 'data/test_prepare_urls.txt'), 'r') as f:
             lines = f.readlines()

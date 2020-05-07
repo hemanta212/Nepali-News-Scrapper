@@ -6,7 +6,7 @@ on:
 
 
 jobs:
-   Installation_Only:
+   WIN_Installation_Only:
     strategy:
         matrix:
             python-version: [3.6, 3.7, 3.8]

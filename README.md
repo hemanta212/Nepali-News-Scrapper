@@ -9,8 +9,10 @@ A Wrapper over newspaper3k library to provide support to nepali sites
 
 # Current State
 * Works for majority of nepali news site
-* Tested site list is given in sites.txt
+* Tested sites list is given in sites.json, (50+ sites)
 * Currently only title and text field is guarenteed to have data. 
+* Extraction of images & date is also supported in most sites, be sure check if it supported
+  on the sites you want before relying.
 
 # Installation
 In case you run in some troubles during installation performing the steps below,
@@ -30,6 +32,12 @@ you can use:
 python -m pip install git+https://github.com/pykancha/newspaper3k_wrapper.git#egg=newspaper_wrapper
 ```
 to simply install it as regular package without cloning repo to your folder.
+
+You can get the download_corpora.py file without cloning the repo through:
+```
+curl https://raw.githubusercontent.com/codelucas/newspaper/master/download_corpora.py -o download_corpora.py
+```
+
 
 ### To specify this git dependency for your project,
 In your requirements.txt file add;
